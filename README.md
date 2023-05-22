@@ -29,3 +29,13 @@
 - 클래스 파일에서 함수를 바로 사용하면 this가 적용되어 main window에 작용
 
 - Signal에 의해서 사용되는 함수로 사용하기 위해 Slot함수(processClick()) 등록 -> connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(processClick()));
+
+## Qt 작성 후 배포
+
+- Release모드를 활성화 후 빌드, 빌드된 Release폴더에서 실행파일(exe)만 새로운 폴더를 만든 후 가져옴
+
+- Qt-cmd(Qt 프롬프트)를 열고 windeployqt [실행파일 경로] 명령어 입력
+
+- 실행 파일만 있던 폴더에 dll파일들이 생기면서 실행이 가능해짐
+
+- window에서 작성한 프로젝트를 리눅스로 samba를 통해 옮김(pro.user 제외) -> cp로 가져온 후 qmake와 make한 후 사용
