@@ -4,7 +4,7 @@
 
 - Qt파일의 헤더는 항상 QApplication 사용
 
-- QLabel함수의 첫 번째 매개변수는 입력하고자하는 내용, 두 번째 매개변수는 부모 레이아웃
+- QLabel,QButton 등의 객체 생성 시 첫 번째 매개변수는 입력하고자하는 내용, 두 번째 매개변수는 부모 레이아웃
 
 - 생성된 Project파일에 QT += widgets 추가 (리눅스에서 직접 QMake시)
 
@@ -13,3 +13,5 @@
 ## Qt Creator
 
 - Help의 Index를 통해 라이브러리 검색 가능
+
+- Connect 함수는 sender,Signal,receiver, method(slot),type(optional) 의 형태를 가짐 -> ex) connect(button, SIGNAL(clicked()), &app, SLOT(quit()));
