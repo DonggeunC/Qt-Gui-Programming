@@ -23,3 +23,9 @@
 ## Qt Creator
 
 - Help의 Index를 통해 라이브러리 검색 가능
+
+- ui의 Design을 통해 widget 배치, 배치된 ui의 widget을 클래스 cpp파일에서 ui를 통하여 호출 ex) ui->pushButton
+
+- 클래스 파일에서 함수를 바로 사용하면 this가 적용되어 main window에 작용
+
+- Signal에 의해서 사용되는 함수로 사용하기 위해 Slot함수(processClick()) 등록 -> connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(processClick()));
