@@ -9,3 +9,7 @@
 - 생성된 Project파일에 QT += widgets 추가 (리눅스에서 직접 QMake시)
 
 - 빌드 순서는 qmake -project 후 qmake로 Makefile 생성, 그 다음 make
+
+## Qt Creator
+
+- Help의 Index를 통해 라이브러리 검색 가능
