@@ -15,3 +15,5 @@
 - Help의 Index를 통해 라이브러리 검색 가능
 
 - Connect 함수는 sender,Signal,receiver, method(slot),type(optional) 의 형태를 가짐 -> ex) connect(button, SIGNAL(clicked()), &app, SLOT(quit()));
+
+- Customwidget의 cpp파일에서 사용된 this는 parent를 가르킴
