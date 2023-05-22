@@ -20,14 +20,6 @@
 
 - 사용자 정의 시그널을 만든 후 emit을 사용하여 시그널과 슬롯을 연결 -> 시그널 포워딩으로 cpp에서 슬롯 대신 signal(),signal()을 이용하여 main에서의 시그널과 슬롯 연결 가능
 
-- QFile의 객체인 pFile을 생성하여 "/dev/ledkey_dev"를 오픈, pFile의 handle()함수를 이용하여 파일 디스크립터를 반환
-
-- 새로 생성한 QSocketNotifier객체인 pKeyLedNotifier를 통해 handle로 반환 받은 소켓의 데이터가 Read할 수 있는지 확인 후 시그널 출력 (SIGNAL(activated()))
-
-- activated시그널이 입력되면 부모 객체의 readKeyData슬롯을 연결
-
-- readKeyData슬롯에서 키 입력이 인식되면 updateKeyDataSig라는 시그널을 보냄 -> KeyLed 객체인 pKeyLed에서 시그널을 받아 체크박스에 업데이트하는 슬롯을 연결 -> 키입력에 따라 체크박스 체크 or 해제
-
 ## Qt Creator
 
 - Help의 Index를 통해 라이브러리 검색 가능
@@ -37,6 +29,16 @@
 - 클래스 파일에서 함수를 바로 사용하면 this가 적용되어 main window에 작용
 
 - Signal에 의해서 사용되는 함수로 사용하기 위해 Slot함수(processClick()) 등록 -> connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(processClick()));
+
+- QFile의 객체인 pFile을 생성하여 "/dev/ledkey_dev"를 오픈, pFile의 handle()함수를 이용하여 파일 디스크립터를 반환
+
+- 새로 생성한 QSocketNotifier객체인 pKeyLedNotifier를 통해 handle로 반환 받은 소켓의 데이터가 Read할 수 있는지 확인 후 시그널 출력 (SIGNAL(activated()))
+
+- activated시그널이 입력되면 부모 객체의 readKeyData슬롯을 연결
+
+- readKeyData슬롯에서 키 입력이 인식되면 updateKeyDataSig라는 시그널을 보냄 -> KeyLed 객체인 pKeyLed에서 시그널을 받아 체크박스에 업데이트하는 슬롯을 연결 -> 키입력에 따라 체크박스 체크 or 해제
+
+- UI의 다이얼을 돌리면 pDialLed객체에서 valueChanged 시그널을 발생시키고 그 시그널이 발생하면 Led가 숫자에 맞추어 Binary로 작동, 그리고 pProgressBar 객체에 setValue슬롯 작동
 
 ## Qt 작성 후 배포
 
