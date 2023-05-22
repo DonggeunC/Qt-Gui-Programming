@@ -10,6 +10,8 @@
 
 - 빌드 순서는 qmake -project 후 qmake로 Makefile 생성, 그 다음 make
 
+## Qt cpp파일 작성
+
 - Connect 함수는 sender,Signal,receiver, method(slot),type(optional) 의 형태를 가짐 -> ex) connect(button, SIGNAL(clicked()), &app, SLOT(quit()));
 
 - Connect의 3번째 매개변수인 목적지가 빠진 상태면 this를 나타냄
