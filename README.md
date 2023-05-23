@@ -58,3 +58,8 @@
 
 ## Qt Tab Widget 작성
 
+- 참조연산자 & -> 포인터처럼 주소공간을 이용, 변수의 공간을 참조하여 값을 리턴할 수 있도록 함
+
+- main widget에서 tab widget을 생성 후 각각의 탭에 따라 class파일을 작성
+
+- main widget에서 각 탭의 포인터 변수의 setLayout함수를 이용하여 각각의 클래스 파일이 작성한 탭을 main ui로 연결
