@@ -42,6 +42,10 @@
 
 - UI의 다이얼을 돌리면 pDialLed객체에서 valueChanged 시그널을 발생시키고 그 시그널이 발생하면 Led가 숫자에 맞추어 Binary로 작동, 그리고 pProgressBar 객체에 setValue슬롯 작동
 
+- Signal과 Slot의 함수의 매개변수는 일치해야됨
+
+- 토글 버튼으로 작동하게 하기 위하여 signal의 clicked함수의 매개변수를 bool을 주고 slot역시 매개변수가 일치해야 되므로 bool을 준다.
+
 ## Qt 작성 후 배포
 
 - Release모드를 활성화 후 빌드, 빌드된 Release폴더에서 실행파일(exe)만 새로운 폴더를 만든 후 가져옴
