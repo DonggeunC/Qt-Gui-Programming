@@ -55,3 +55,6 @@
 - 실행 파일만 있던 폴더에 dll파일들이 생기면서 실행이 가능해짐
 
 - window에서 작성한 프로젝트를 리눅스로 samba를 통해 옮김(pro.user 제외) -> cp로 가져온 후 qmake와 make한 후 사용
+
+## Qt Tab Widget 작성
+
