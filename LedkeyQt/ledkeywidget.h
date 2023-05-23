@@ -2,6 +2,7 @@
 #define LEDKEYWIDGET_H
 
 #include <QWidget>
+#include <QTimer>
 #include "keyled.h"
 
 QT_BEGIN_NAMESPACE
@@ -19,8 +20,12 @@ public:
 private:
     Ui::LedkeyWidget* ui;
     KeyLed* pKeyled;
+    QTimer* pQTimer;
 private slots:
     void slotKeyCheckBoxUpdate(int);
+    void slotSetValueDial();
+    void slotTimerStart(bool);
+    void slotTimerValueChanged(QString);
 };
 
 #endif // LEDKEYWIDGET_H

@@ -6,12 +6,51 @@ LedkeyWidget::LedkeyWidget(QWidget *parent) :
   , ui(new Ui::LedkeyWidget)
 {
     ui->setupUi(this);
+    pQTimer = new QTimer(this);
     pKeyled = new KeyLed(this);
+    connect(pQTimer,SIGNAL(timeout()),this,SLOT(slotSetValueDial()));
+    connect(ui->pPBtimerStart,SIGNAL(clicked(bool)),this,SLOT(slotTimerStart(bool)));
+    connect(ui->pCBtimerValue,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotTimerValueChanged(QString)));
     connect(pKeyled, SIGNAL(updateKeydataSig(int)),this,SLOT(slotKeyCheckBoxUpdate(int)));
     connect(ui->pDialLed,SIGNAL(valueChanged(int)),pKeyled,SLOT(writeLedData(int)));
     connect(ui->pDialLed,SIGNAL(valueChanged(int)),ui->pProgressBarLed,SLOT(setValue(int)));
+    connect(ui->pPBappQuit,SIGNAL(clicked()),qApp,SLOT(quit()));
 }
 
+void LedkeyWidget::slotTimerValueChanged(QString strValue){
+    if(pQTimer->isActive()){
+        pQTimer->stop();
+        int timeValue = strValue.toInt();
+        pQTimer->start(timeValue);
+    }
+}
+
+void LedkeyWidget::slotTimerStart(bool check){
+    if(check){
+        QString strValue;
+        int timerValue = 0;
+        strValue = ui->pCBtimerValue->currentText();
+        timerValue = strValue.toInt();
+        pQTimer->start(timerValue);
+        ui->pPBtimerStart->setText("Timer Stop");
+    }
+    else{
+        pQTimer->stop();
+        ui->pPBtimerStart->setText("Timer Start");
+    }
+}
+
+void LedkeyWidget::slotSetValueDial(){
+    int value=ui->pDialLed->value();
+    if(value != ui->pDialLed->maximum()){
+        value++;
+        ui->pDialLed->setValue(value);
+    }
+    else{
+        value = 0;
+        ui->pDialLed->setValue(0);
+    }
+}
 void LedkeyWidget::slotKeyCheckBoxUpdate(int key){
     static int lcdData = 0;
     lcdData ^= (0x01 << (key-1));

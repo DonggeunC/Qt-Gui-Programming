@@ -12,7 +12,6 @@ KeyLed::KeyLed(QWidget *parent) :
     keyledFd = pFile->handle();
     pKeyLedNotifier = new QSocketNotifier(keyledFd,QSocketNotifier::Read,this);
     connect(pKeyLedNotifier,SIGNAL(activated(int)),this,SLOT(readKeyData(int)));
-
 }
 void KeyLed::readKeyData(int)
 {
