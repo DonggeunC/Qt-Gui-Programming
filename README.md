@@ -16,7 +16,7 @@
 
 - Connect의 3번째 매개변수인 목적지가 빠진 상태면 this를 나타냄
 
-- Customwidget의 cpp파일에서 사용된 this는 parent를 가르킴
+- Customwidget의 cpp파일에서 사용된 this는 parent를 가르킴 -> main window로 볼 수 있음
 
 - 사용자 정의 시그널을 만든 후 emit을 사용하여 시그널과 슬롯을 연결 -> 시그널 포워딩으로 cpp에서 슬롯 대신 signal(),signal()을 이용하여 main에서의 시그널과 슬롯 연결 가능
 
