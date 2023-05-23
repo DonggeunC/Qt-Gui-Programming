@@ -22,6 +22,8 @@
 
 ## Qt Creator
 
+- qApp = 객체 전역 변수
+
 - Help의 Index를 통해 라이브러리 검색 가능
 
 - ui의 Design을 통해 widget 배치, 배치된 ui의 widget을 클래스 cpp파일에서 ui를 통하여 호출 ex) ui->pushButton
