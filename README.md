@@ -63,3 +63,5 @@
 - main widget에서 tab widget을 생성 후 각각의 탭에 따라 class파일을 작성
 
 - main widget에서 각 탭의 포인터 변수의 setLayout함수를 이용하여 각각의 클래스 파일이 작성한 탭을 main ui로 연결
+
+- 원하는 기능의 signal과 그에 응하는 slot함수를 각 클래스파일에 작성 후 connect를 이용하여 서로 다른 탭끼리 연결되도록 작성
