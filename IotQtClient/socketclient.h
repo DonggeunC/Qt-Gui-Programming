@@ -1,7 +1,7 @@
 #ifndef SOCKETCLIENT_H
 #define SOCKETCLIENT_H
 
-/* kccistc embedded & iot by ksh */
+/* kccistc embedded & iot by cdg */
 
 #include <QTcpSocket>
 #include <QHostAddress>
