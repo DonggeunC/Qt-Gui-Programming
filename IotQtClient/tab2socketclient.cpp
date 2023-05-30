@@ -46,6 +46,15 @@ void Tab2SocketClient::slotSocketRecvUpdate(QString strValue){
         int ledNo = qList[3].toInt();
         emit sigLedWrite(ledNo);
     }
+    //else if(qList[2] == "LAMPON"){
+    else if(strValue.indexOf("LAMP") != -1 || strValue.indexOf("GAS") != -1){
+        emit sigTab3RecvData(strValue);
+    }
+    else if(strValue.indexOf("SENSOR") != -1){
+        emit sigTab5RecvData(strValue);
+        emit sigTab6RecvData(strValue);
+
+    }
 }
 
 void Tab2SocketClient::slotSocketSendData(){
@@ -63,10 +72,12 @@ void Tab2SocketClient::slotSocketSendData(){
     ui->pLEsendData->clear();
 }
 
-/*void slotSocketSendData(QString strValue){
-
+void Tab2SocketClient::slotSocketSendData(QString strValue){
+    if(ui->pPBServerConnect->isChecked()){
+        pSocketClient->slotSocketSendData(strValue);
+    }
 }
-*/
+
 Tab2SocketClient::~Tab2SocketClient()
 {
     delete ui;
