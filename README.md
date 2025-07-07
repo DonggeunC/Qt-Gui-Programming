@@ -30,11 +30,11 @@
 
 - 클래스 파일에서 함수를 바로 사용하면 this가 적용되어 main window에 작용
 
-- Signal에 의해서 사용되는 함수로 사용하기 위해 Slot함수(processClick()) 등록 -> connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(processClick()));
+- Signal에 의해서 사용되는 함수로 사용하기 위해 Slot함수(processClick()) 등록 -> connect(ui->pushButton,&QPushButton::clicked,this,&MainWindow::processClick);
 
 - QFile의 객체인 pFile을 생성하여 "/dev/ledkey_dev"를 오픈, pFile의 handle()함수를 이용하여 파일 디스크립터를 반환
 
-- 새로 생성한 QSocketNotifier객체인 pKeyLedNotifier를 통해 handle로 반환 받은 소켓의 데이터가 Read할 수 있는지 확인 후 시그널 출력 (SIGNAL(activated()))
+- 새로 생성한 QSocketNotifier객체인 pKeyLedNotifier를 통해 handle로 반환 받은 소켓의 데이터가 Read할 수 있는지 확인 후 시그널 출력 (&QSocketNotifier::activated)
 
 - activated시그널이 입력되면 부모 객체의 readKeyData슬롯을 연결
 
