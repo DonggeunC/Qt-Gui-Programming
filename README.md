@@ -65,3 +65,9 @@
 - main widget에서 각 탭의 포인터 변수의 setLayout함수를 이용하여 각각의 클래스 파일이 작성한 탭을 main ui로 연결
 
 - 원하는 기능의 signal과 그에 응하는 slot함수를 각 클래스파일에 작성 후 connect를 이용하여 서로 다른 탭끼리 연결되도록 작성
+
+## Qt Signal-Slot동작 유의사항
+
+- Signal-Slot동작은 Qt의 이벤트 루프를 따라 동작. 이벤트 루프가 없는 경우 동작하지 않음.
+
+- 타 스레드의 Signal에 대한 Slot의 동작은 기본적으로 Qt::AutoConnection에 의해 동작하며 UI관련일 경우 명시적으로 Qt::QueuedConnection해주는게 좋음.
